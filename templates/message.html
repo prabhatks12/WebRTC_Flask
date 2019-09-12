@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<script type="text/javascript" src="{{ url_for('static',filename='client.js') }}"></script>
+<link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+
+<div class="cols-sm-12">
+<div class="col-sm-4"></div>
+<div class="col-sm-4">
+
+  <!--  1. Registering User -->
+
+  <label for="name">Enter Name</label><br>
+  <input type="text" name="name" placeholder="Your name" id="user"><br>
+  <button name="button" value="Submit" onclick="registerUser()" class="send_button">Submit name</button>
+  <div id="socketio" style="display:none">
+  <br>
+
+
+  <!--  2. Showing list of clients -->
+
+  <h4>List of Available Clients.</h4>
+  <table id="table" style="width:100%">
+  </table>
+
+  <!--  3. WebRTC Communication  -->
+
+  <h3>WebRTC Communication </h3>
+  <div class="box" palceholder="text" id="dispalyMessage">
+  </div>
+  <input type="text" name="name" placeholder="Type message" id="sendMessageText">
+  <button name="button" onClick="message()" class="send_button">Send</button>
+  <button name="button" onClick="close()" class="send_button">Close</button>
+
+
+  </div>
+
+</div>
+
+<div class="col-sm-4"></div>
+</div>
+
+
+{% endblock %}
