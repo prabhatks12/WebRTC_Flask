@@ -1,3 +1,2 @@
 
-*.py linguist-vendored=true
-
+ *.* linguist-language=Python
