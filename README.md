@@ -1,7 +1,7 @@
 # WebRTC in `Flask` and `Javascript`
 
-Creating a chat application which uses WebRTC connection for peer to peer communication. Flask SocketIO in only needed in initial stage for identifying the
-clients, after that the peers or clients will communicate themself.
+Creating a chat application which uses `WebRTC` connection for peer to peer communication. `Flask SocketIO` in only needed in initial stage for identifying the
+clients, after that the peers or clients will communicate by themself.
 
 
 ## Developers Guideline
