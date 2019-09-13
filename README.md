@@ -1,11 +1,8 @@
-# SocketIO in `Flask` and `Javascript`
+# WebRTC in `Flask` and `Javascript`
 
-Creating a chat app which provides both `personal` and `group chat` option using Flask SocketIO and also dislplaying the
-details of available clients inside a table.
+Creating a chat application which uses WebRTC connection for peer to peer communication. Flask SocketIO in only needed in initial stage for identifying the
+clients, after that the peers or clients will communicate themself.
 
-Sid in flask can be used inside emit method to identify any client. Thus when parameter room=request.sid is passed inside the emit function, the message is only sent to the particular client.
-
-*Note*: Client can only send data to Server and not to anyother client.
 
 ## Developers Guideline
 Type the following command based on your system to create the virtual enviornment in python.
@@ -38,9 +35,6 @@ python app.py
 flask run
 ```
 
-*Note*: Please click Chat button in the `List of available clients` for both the clients for two way communication for One to
-One or private chat. The text at the bottom of the table will change. 
-
 ## Results
 Displaying the messages for `first` client
 
@@ -49,5 +43,3 @@ Displaying the messages for `first` client
 Displaying the messages for `second` client
 
 ![Alt text](screenshots/working2.png "ScreenShot")
-
-
