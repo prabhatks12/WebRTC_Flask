@@ -1,5 +1,5 @@
 
 * linguist-vendored
 *.python linguist-detectable=true
-*.js linguist-vendored=false
+*.js linguist-detectable=false
 
