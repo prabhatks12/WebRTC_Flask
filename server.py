@@ -59,6 +59,7 @@ def videoCall():
 @app.route('/logout')
 def logout():
     try:
+        del users[session['user_name']]
         session.pop('user_name')
         session.pop('user_email')
         return redirect(url_for('login'))
