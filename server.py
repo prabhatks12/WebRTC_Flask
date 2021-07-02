@@ -42,14 +42,28 @@ def login():
 # loading HTML page for chatting with users 
 @app.route('/message')
 def message():
-    return render_template('message.html', user_name = session['user_name'],  user_email = session['user_email'])
-
+    try:
+        return render_template('message.html', user_name = session['user_name'],  user_email = session['user_email'])
+    except:
+        return redirect(url_for('login'))
 
 # loading HTML page for video calling with users 
 @app.route('/videoCall')
 def videoCall():
-    return render_template('videoCall.html', user_name = session['user_name'],  user_email = session['user_email'])
+    try:
+        return render_template('videoCall.html', user_name = session['user_name'],  user_email = session['user_email'])
+    except:
+        return redirect(url_for('login'))
 
+# loading HTML page for video calling with users 
+@app.route('/logout')
+def logout():
+    try:
+        session.pop('user_name')
+        session.pop('user_email')
+        return redirect(url_for('login'))
+    except:
+        return redirect(url_for('login'))
 
 
 """
@@ -77,15 +91,12 @@ def onMessage(msg):
     if(data['type']=='register'):
         user_name = data['user_name']
         users[user_name] = request.sid
+        print("[onMessage] emit displayAvailableUsers", users)
+        socketio.emit('displayAvailableUsers', json.dumps(users))
 
-        # creating table in js to show available users
-        if data['purpose'] == 'chat':
-            print("[onMessage] emit displayAvailableUsers", users)
-            socketio.emit('displayAvailableUsers', json.dumps(users))
-
-        elif data['purpose'] == 'videoCall':
-            print("[onMessage] emit displayUsersForCall", users)
-            socketio.emit('displayUsersForCall', json.dumps(users))
+        # elif data['purpose'] == 'videoCall':
+        #     print("[onMessage] emit displayUsersForCall", users)
+        #     socketio.emit('displayUsersForCall', json.dumps(users))
 
     # handling offer andwers and candiates
     elif(data['type'] == 'offer'):
@@ -101,3 +112,4 @@ def onMessage(msg):
 
 if(__name__=='__main__'):
 	socketio.run(app, debug=True)
+    # host = your ipv4

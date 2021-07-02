@@ -3,11 +3,14 @@
 {% extends "bootstrap/base.html" %}
 
 {% block body %}
+<head>
+<link rel="shortcut icon" href="{{ url_for('static',filename='images/icons/chat.png') }}">
 
-<!-- <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"> -->
-<!-- Loading socket.io.js , see reference (https://flask-socketio.readthedocs.io/en/latest/getting_started.html) -->
+<!-- 
+	Loading socket.io.js , see reference (https://flask-socketio.readthedocs.io/en/latest/getting_started.html) 
+-->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
-
+</head>
 
 <!-- 
   DESCRIPTION:
@@ -21,9 +24,9 @@
 		</div>
 
 		<ul class="nav navbar-nav">
-			<li id="chat_navbar" class="active"><a href="{{ url_for('login') }}">Chatting</a></li>
-			<li id="chat_navbar"><a href="{{ url_for('videoCall') }}">Video Call</a></li>  
-			<li id="chat_navbar"><a href="{{ url_for('login') }}">Logout</a></li>    
+			<li id="chat_navbar"><a href="{{ url_for('message') }}">Chatting</a></li>
+			<li id="videoCall_navbar"><a href="{{ url_for('videoCall') }}">Video Call</a></li>  
+			<li><a href="{{ url_for('logout') }}">Logout</a></li>    
 		</ul>
 	</div>
 </nav>

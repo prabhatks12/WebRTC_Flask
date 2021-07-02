@@ -3,7 +3,7 @@
 {% block content %}
 
 
-<script type="text/javascript" src="{{ url_for('static',filename='client.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='videoCall_client.js') }}"></script>
 <link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css" />
 
 <!-- 
@@ -14,9 +14,9 @@
 <body onload="registerUser('{{ user_name }}', '{{ user_email }}')">
 
     <div class="cols-sm-12 row">
-        <div class="col-sm-1"></div>
+        <div class="col-sm-2"></div>
     
-        <div class="col-sm-10 row">
+        <div class="col-sm-8 row">
             <h2 style="text-align: center;">Video Call</h2>
             <br>
 
@@ -25,9 +25,9 @@
                 <div class="col-sm-1">
                     <img src="{{ url_for('static',filename='images/icons/user.png') }}", width=50px, height=50px>
                 </div> 
-                <div class="col-sm-3" style="text-align: left;"> 
-                    <p class="regualar_text"> <b> User name </b> <br></p> <p id="user">{{ user_name }}</p>
-                </div>  
+                <div class="col-sm-11" style="text-align: left;"> 
+					<b>User : </b> {{ user_email }} <p id="user">{{ user_name }}</p> 
+				</div>    
             </div>
 
             <br><br><br>
@@ -40,9 +40,12 @@
 
             <div id="available_clients" style="display:none">  </div>
 
-            <div palceholder="text" id="dispalyMessage">
-            </div>
-
+            <br><br>
+            <center>
+                <h4>Call Status:</h5>
+                <div class="regualar_text" palceholder="text" id="dispalyMessage"> Not Connected
+                </div>
+            </center>
             <!--  3. Showing video boxes and buttons to control video and audio -->
 
             <div class="col-sm-6">
@@ -50,8 +53,7 @@
                 <video class="videobox" autoplay="true" id="userVideoFeed" controls muted></video>
                 <br><br>
                 <center>
-                    <img src="{{ url_for('static',filename='images/icons/video.png') }}", width=50px, height=50px onclick="manageVideoCall()" id="videoButton" class="circular_card"> &nbsp;&nbsp;         
-                    <img src="{{ url_for('static',filename='images/icons/audio.png') }}", width=50px, height=50px onclick="" id="audioButton" class="circular_card"> 
+                    <img src="{{ url_for('static',filename='images/icons/close.png') }}", width=50px, height=50px onclick="closeCall()" id="videoButton" class="circular_card"> 
                 </center>         
             </div>
 
@@ -61,7 +63,7 @@
             </div>
          </div>
 
-         <div class="col-sm-1"></div>
+         <div class="col-sm-2"></div>
 
     </div>
 

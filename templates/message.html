@@ -2,7 +2,7 @@
 
 {% block content %}
 
-<script type="text/javascript" src="{{ url_for('static',filename='client.js') }}"></script>
+<script type="text/javascript" src="{{ url_for('static',filename='chat_client.js') }}"></script>
 <link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css"/>
 
 <!-- 
@@ -17,34 +17,36 @@
 
 		<div class="col-sm-8"><br>
 
+			<h2 style="text-align: center;">Chatting Page</h2>
+			<br>
+			
 			<!-- 1. For displaying user icon with user name and email -->
 			<div class="col-sm-12"> 
 				<div class="col-sm-1">
 					<img src="{{ url_for('static',filename='images/icons/user.png') }}", width=50px, height=50px>
 				</div> 
-				<div class="col-sm-3" style="text-align: left;"> 
-					<p class="regualar_text"> <b> User name </b> <br></p> <p id="user">{{ user_name }}</p>
+				<div class="col-sm-11" style="text-align: left;"> 
+					<b>User : </b> {{ user_email }} <p id="user">{{ user_name }}</p> 
 				</div>  
 			</div>
 
 			<br><br><br>
 
 			<!--  2. Showing list of clients -->
-			<h4>List of Available Clients</h4>
+			<h3>List of Available Clients</h3>
 			<table id="table" style="width:100%"></table>
-
+			<br>
 
 			<!--  3. WebRTC chat communication  -->
-			<div id="available_clients" style="display:none">
-				
-				<h3>WebRTC Communication </h3>
+			<div id="available_clients" style="display:none">				
+				<h3>WebRTC Communication</h3>
 				<div class="box" palceholder="text" id="dispalyMessage"></div>
 				<input type="text" name="name" placeholder="Type message" id="sendMessageText">
-				<button name="button" onClick="message()" class="send_button">Send</button>
-				<button name="button" onClick="close()" class="send_button">Close</button>
-
-
+				<br>
+				<button name="button" onClick="message()" class="send_button">Send</button> &nbsp;&nbsp; 
+				<button name="button" onClick="closeConnection()" class="send_button">Close</button>
 			</div>
+			<br><br><br>
 
 		</div>
 

@@ -35,9 +35,12 @@ python app.py
 flask run
 ```
 
-## Reference
+## References
 
 1. [Flask-SocketIO Getting Started](https://flask-socketio.readthedocs.io/en/latest/getting_started.html)
+2. [RTCPeerConnection.createDataChannel()](https://developer.mozilla.org/en-US/docs/Web/API/RTCPeerConnection/createDataChannel) 
+3.	[A simple RTCDataChannel sample](https://developer.mozilla.org/en-US/docs/Web/API/WebRTC_API/Simple_RTCDataChannel_sample)
+
 
 ## Results
 Displaying the messages for `first` client
