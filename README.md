@@ -35,11 +35,15 @@ python app.py
 flask run
 ```
 
+## Reference
+
+1. [Flask-SocketIO Getting Started](https://flask-socketio.readthedocs.io/en/latest/getting_started.html)
+
 ## Results
 Displaying the messages for `first` client
 
-![Alt text](screenshots/working1.png "ScreenShot")
+![Screenshot1](screenshots/working1.png "ScreenShot")
 
 Displaying the messages for `second` client
 
-![Alt text](screenshots/working2.png "ScreenShot")
+![Screenshot2](screenshots/working2.png "ScreenShot")

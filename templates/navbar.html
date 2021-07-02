@@ -1,0 +1,32 @@
+<title>ChatApp</title>
+
+{% extends "bootstrap/base.html" %}
+
+{% block body %}
+
+<!-- <link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}"> -->
+<!-- Loading socket.io.js , see reference (https://flask-socketio.readthedocs.io/en/latest/getting_started.html) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" integrity="sha512-q/dWJ3kcmjBLU4Qc47E4A9kTB4m3wuTY7vkFJDTZKjTs8jhyGQnaUrxa0Ytd0ssMZhbNua9hE+E7Qv1j+DyZwA==" crossorigin="anonymous"></script>
+
+
+<!-- 
+  DESCRIPTION:
+      Creating navbar for all html pages, it will extended and used in other pages.  
+-->
+
+<nav class="navbar navbar-inverse">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="">SocketIO</a>
+		</div>
+
+		<ul class="nav navbar-nav">
+			<li id="chat_navbar" class="active"><a href="{{ url_for('login') }}">Chatting</a></li>
+			<li id="chat_navbar"><a href="{{ url_for('videoCall') }}">Video Call</a></li>  
+			<li id="chat_navbar"><a href="{{ url_for('login') }}">Logout</a></li>    
+		</ul>
+	</div>
+</nav>
+
+{% block content %} {% endblock %}
+{% endblock %}

@@ -1,44 +1,55 @@
-{% extends 'base.html' %}
+{% extends 'navbar.html' %}
 
 {% block content %}
 
 <script type="text/javascript" src="{{ url_for('static',filename='client.js') }}"></script>
-<link rel="stylesheet" href="{{ url_for('static',filename='style.css') }}">
+<link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css"/>
 
-<div class="cols-sm-12">
-<div class="col-sm-4"></div>
-<div class="col-sm-4">
+<!-- 
+  DESCRIPTION:
+      Creating messageing and chat page for peer to peer.  
+-->
 
-  <!--  1. Registering User -->
+<body onload="registerUser('{{ user_name }}', '{{ user_email }}')">
+	<div class="cols-sm-12">
 
-  <label for="name">Enter Name</label><br>
-  <input type="text" name="name" placeholder="Your name" id="user"><br>
-  <button name="button" value="Submit" onclick="registerUser()" class="send_button">Submit name</button>
-  <div id="socketio" style="display:none">
-  <br>
+		<div class="col-sm-2"></div>
 
-  <!--  2. Showing list of clients -->
+		<div class="col-sm-8"><br>
 
-  <h4>List of Available Clients.</h4>
-  <table id="table" style="width:100%">
-  </table>
+			<!-- 1. For displaying user icon with user name and email -->
+			<div class="col-sm-12"> 
+				<div class="col-sm-1">
+					<img src="{{ url_for('static',filename='images/icons/user.png') }}", width=50px, height=50px>
+				</div> 
+				<div class="col-sm-3" style="text-align: left;"> 
+					<p class="regualar_text"> <b> User name </b> <br></p> <p id="user">{{ user_name }}</p>
+				</div>  
+			</div>
 
-  <!--  3. WebRTC Communication  -->
+			<br><br><br>
 
-  <h3>WebRTC Communication </h3>
-  <div class="box" palceholder="text" id="dispalyMessage">
-  </div>
-  <input type="text" name="name" placeholder="Type message" id="sendMessageText">
-  <button name="button" onClick="message()" class="send_button">Send</button>
-  <button name="button" onClick="close()" class="send_button">Close</button>
+			<!--  2. Showing list of clients -->
+			<h4>List of Available Clients</h4>
+			<table id="table" style="width:100%"></table>
 
 
-  </div>
+			<!--  3. WebRTC chat communication  -->
+			<div id="available_clients" style="display:none">
+				
+				<h3>WebRTC Communication </h3>
+				<div class="box" palceholder="text" id="dispalyMessage"></div>
+				<input type="text" name="name" placeholder="Type message" id="sendMessageText">
+				<button name="button" onClick="message()" class="send_button">Send</button>
+				<button name="button" onClick="close()" class="send_button">Close</button>
 
-</div>
 
-<div class="col-sm-4"></div>
-</div>
+			</div>
 
+		</div>
+
+	<div class="col-sm-3"></div>
+	</div>
+</body>
 
 {% endblock %}

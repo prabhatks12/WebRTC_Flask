@@ -1,0 +1,72 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+
+
+<script type="text/javascript" src="{{ url_for('static',filename='client.js') }}"></script>
+<link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css" />
+
+<!-- 
+  DESCRIPTION:
+      Creating video call page for peer to peer.  
+-->
+
+<body onload="registerUser('{{ user_name }}', '{{ user_email }}')">
+
+    <div class="cols-sm-12 row">
+        <div class="col-sm-1"></div>
+    
+        <div class="col-sm-10 row">
+            <h2 style="text-align: center;">Video Call</h2>
+            <br>
+
+            <!-- 1. For displaying user icon with user name and email -->
+            <div class="col-sm-12"> 
+                <div class="col-sm-1">
+                    <img src="{{ url_for('static',filename='images/icons/user.png') }}", width=50px, height=50px>
+                </div> 
+                <div class="col-sm-3" style="text-align: left;"> 
+                    <p class="regualar_text"> <b> User name </b> <br></p> <p id="user">{{ user_name }}</p>
+                </div>  
+            </div>
+
+            <br><br><br>
+
+            <!--  2. Showing list of clients -->
+
+            <h4>List of Available Clients.</h4>
+            <table id="table" style="width:100%">
+            </table>
+
+            <div id="available_clients" style="display:none">  </div>
+
+            <div palceholder="text" id="dispalyMessage">
+            </div>
+
+            <!--  3. Showing video boxes and buttons to control video and audio -->
+
+            <div class="col-sm-6">
+                <p class="regualar_text" style="text-align: center;"><b>Your feed</b></p>
+                <video class="videobox" autoplay="true" id="userVideoFeed" controls muted></video>
+                <br><br>
+                <center>
+                    <img src="{{ url_for('static',filename='images/icons/video.png') }}", width=50px, height=50px onclick="manageVideoCall()" id="videoButton" class="circular_card"> &nbsp;&nbsp;         
+                    <img src="{{ url_for('static',filename='images/icons/audio.png') }}", width=50px, height=50px onclick="" id="audioButton" class="circular_card"> 
+                </center>         
+            </div>
+
+            <div class="col-sm-6">
+                <p class="regualar_text" style="text-align: center;"><b>Other user feed</b></p>
+                <video class="videobox" autoplay="true" id="othersVideoFeed" controls muted></video>
+            </div>
+         </div>
+
+         <div class="col-sm-1"></div>
+
+    </div>
+
+</body>
+
+{% endblock %}
+
+

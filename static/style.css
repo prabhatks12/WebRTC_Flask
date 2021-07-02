@@ -1,3 +1,6 @@
+body{
+  background-color:#C5E6A6;  /* #EAD3D4; */ 
+}
 .blue_button{
   font-size: 14px;
   background: #5dade2 ;
@@ -5,11 +8,24 @@
   width: 100%;
 }
 .send_button{
-  font-size: 14px;
+  font-size: 16px;
   background: #28b463 ;
   border-color: #28b463 ;
-  width: 20%;
+  text-align: center;
+  width: 30%;
+  color: white;
   padding:3px;
+  border-radius: 5px;
+  /* font-weight: bold; */
+}
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+  width: 40%;
+  border-radius: 5px;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
 input{
   font-size: 14px;
@@ -37,5 +53,21 @@ table, th, td {
   overflow:auto;
   padding: 10px;
   border: 5px solid gray;
-
+}
+.videobox{
+  width: 100%;
+  height: 50%;
+  overflow:auto;
+  padding: 10px;
+  background-color: #2C404C;
+  border: 3px solid gray;
+}
+.regualar_text{
+  font-size: 16px;
+}
+.circular_card{
+  transition: 0.3s;
+}
+.circular_card:hover {
+  transform: scale(1.2);
 }

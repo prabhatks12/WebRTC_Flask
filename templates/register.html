@@ -1,0 +1,35 @@
+{% extends 'navbar.html' %}
+
+{% block content %}
+
+<link href="{{ url_for('static',filename='style.css') }}" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="{{ url_for('static',filename='client.js') }}"></script>
+
+<!-- 
+  DESCRIPTION:
+      Creating registration page for adding new users.  
+-->
+
+<body>
+    <div class="cols-sm-12 row" >
+        <div class="col-sm-4"></div>
+
+        <div class="col-sm-4 card" style="background-color: white;">
+
+            <h2>Register User</h2>
+            <br>
+            <!--  Form to register a new user -->
+            <form action="/" method="POST">
+                <label for="name">Name</label><br>
+                <input type="text" name="user_name" placeholder="Enter your name" required><br><br>
+            
+                <label for="name">Email</label><br>
+                <input type="email" name="user_email" placeholder="Enter your email" required><br><br>
+            
+                <button name="button" value="Submit" class="send_button">Submit</button>
+            </form>
+        </div>
+
+    </div>
+</body>
+{% endblock %}
