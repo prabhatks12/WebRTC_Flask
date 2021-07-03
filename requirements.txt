@@ -1,7 +1,7 @@
 bidict==0.21.2
 click==8.0.1
 colorama==0.4.4
-dataclasses==0.8
+dataclasses==0.6
 dominate==2.4.0
 Flask==2.0.1
 Flask-Bootstrap==3.3.7.1
