@@ -43,10 +43,10 @@ flask run
 
 
 ## Results
-Displaying the messages for `first` client
+Displaying the chatting feature for `both` client
 
-![Screenshot1](screenshots/working1.png "ScreenShot")
+![Screenshot1](screenshots/chat.png "ScreenShot")
 
-Displaying the messages for `second` client
+Displaying the video calling feature for `both` client
 
-![Screenshot2](screenshots/working2.png "ScreenShot")
+![Screenshot2](screenshots/video.png "ScreenShot")
