@@ -28,11 +28,17 @@ venv\Scripts\activate
 #add the requirements
 pip install -r requirements.txt
 
-#running the project
-python app.py
+#running the on localhost 
+python main.py
 
-#or
-flask run
+# running on gcloud 
+# 1. create a new project on Google Cloud and copy its PROJECT ID
+# 2. make sure you have app.yaml and requirements.txt
+
+gcloud app create --project = [YOUR_PROJECT_ID]
+
+# it will ask for a region for deployment
+gcloud app deploy
 ```
 
 ## References
@@ -50,3 +56,5 @@ Displaying the chatting feature for `both` client
 Displaying the video calling feature for `both` client
 
 ![Screenshot2](screenshots/video.png "ScreenShot")
+
+## Thank you
