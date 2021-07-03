@@ -4,7 +4,7 @@ import numpy as np
 import json
 import os
 
-os.environ["GOOGLE_APPLICATION_CREDENTIALS"]  = "flasksocketio-4fb711620f82.json"
+os.environ["GOOGLE_APPLICATION_CREDENTIALS"]  = "add your json file path"
 datastore_client = datastore.Client()
 
 def uniqueDetail(user_name, user_email):

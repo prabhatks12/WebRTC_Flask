@@ -5,9 +5,6 @@ clients, after that the peers or clients will communicate by themself.
 
 <br />
 
----
-
-<br />
 
 ## Developers Guideline
 Type the following command based on your system to create the virtual enviornment in python.
@@ -52,9 +49,6 @@ Add your GOOGLE_APPLICATION_CREDENTIALS path to datastoreUitl.py , see reference
 
 <br />
 
----
-
-<br />
 
 ## References
 
@@ -66,9 +60,6 @@ Add your GOOGLE_APPLICATION_CREDENTIALS path to datastoreUitl.py , see reference
 
 <br />
 
----
-
-<br />
 
 ## Results
 
@@ -83,7 +74,7 @@ Displaying the chatting feature for `both` client
 
 Displaying the video calling feature for `both` client
 
-<br /><br />
+<br />
 
 ![Screenshot2](screenshots/video.png "ScreenShot")
 
@@ -91,10 +82,6 @@ Displaying the video calling feature for `both` client
 <br />
 
 Note: The code works better and faster with localhost.
-
-<br />
-
----
 
 <br />
 
