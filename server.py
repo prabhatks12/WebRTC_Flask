@@ -11,7 +11,7 @@ from flask_socketio import SocketIO
 import pandas as pd
 import numpy as np
 import json
-import datastoreUtil as util
+
 
 app = Flask(__name__)
 bootstrap=Bootstrap(app)
@@ -35,10 +35,7 @@ def login():
         user_email = request.form.get("user_email")
         session['user_name'] = user_name
         session['user_email'] = user_email
-        if util.uniqueDetail(user_name, user_email):
-            return  redirect(url_for('message'))
-        elif util.registerUser(user_name, user_email):
-            return  redirect(url_for('message'))
+        return  redirect(url_for('message'))
     return render_template('register.html')
 
 
@@ -80,11 +77,6 @@ def logout():
 @socketio.on('connected')
 def onConnection(message):    
     print("connected : ",message)
-    data = json.loads(message)
-    user_name = data['user_name']
-    user_sid = request.sid
-    if user_sid != None:
-        util.updateUserSid(user_name, user_sid)
 
 
 """ 
@@ -97,9 +89,9 @@ def onMessage(msg):
     print("[onMessage] All data : ", data)
 
     # if a new peer is conneted to the sever
-    if(data['type']=='register'):        
+    if(data['type']=='register'):
         user_name = data['user_name']
-        users[user_name] = util.getUserSid(user_name)
+        users[user_name] = request.sid
         print("[onMessage] emit displayAvailableUsers", users)
         socketio.emit('displayAvailableUsers', json.dumps(users))
 
@@ -109,12 +101,11 @@ def onMessage(msg):
 
     # handling offer andwers and candiates
     elif(data['type'] == 'offer'):
-        print("sending offer")
         socketio.emit('offerReceived', json.dumps({'type': "offer", 'offer': data['offer']
-        ,'receiver': data['receiver'], 'sender':data['sender'], 'senderid': util.getUserSid(data['sender'])}), room = util.getUserSid(data['receiver']))
+        ,'receiver': data['receiver'], 'sender':data['sender'], 'senderid': users.get(data['sender'])}), room = users.get(data['receiver']))
 
     elif(data['type'] == 'answer'):
-        socketio.emit('answerReceived', json.dumps({'type': "answer", 'answer': data['answer'], 'sender': data['sender']}), room = util.getUserSid(data['receiver']))
+        socketio.emit('answerReceived', json.dumps({'type': "answer", 'answer': data['answer'], 'sender': data['sender']}), room = users.get(data['receiver']))
 
     elif(data['type'] == 'candidate'):
         socketio.emit('candidateReceived', json.dumps({'type': "candidate", 'candidate': data['candidate']}), room = data['user'])

@@ -7,8 +7,12 @@ var videoRunning = false
 
 socket.on('connect',function(){
     console.log("connected");
-    socket.emit('connected','SocketIO connected on flask side');
+	msg = {
+		user_name : document.getElementById("user").innerHTML
+	}
+    socket.emit('connected', JSON.stringify(msg));
 });
+
 
 // sending message to Flask after converting message to json and each item inside it as string
 function sendMessage(message){
