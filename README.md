@@ -85,4 +85,10 @@ Note: The code works better and faster with localhost.
 
 <br />
 
+## License
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
+
 ## Thank you
